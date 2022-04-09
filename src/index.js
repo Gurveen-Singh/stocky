@@ -2,6 +2,7 @@ import * as ReactDOMClient from "react-dom/client";
 import React from "react";
 import App from "./App";
 import "./index.css";
+import CryptoContext from "./CryptoContext";
 const container = document.getElementById("root");
 
 // Create a root.
@@ -9,6 +10,8 @@ const root = ReactDOMClient.createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <CryptoContext>
+      <App />
+    </CryptoContext>
   </React.StrictMode>
 );
