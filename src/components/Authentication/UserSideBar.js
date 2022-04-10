@@ -72,8 +72,6 @@ export default function UserSidebar() {
   });
   const { user, setAlert, watchlist, coins, symbol } = CryptoState();
 
-  console.log(watchlist, coins);
-
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -90,7 +88,7 @@ export default function UserSidebar() {
     setAlert({
       open: true,
       type: "success",
-      message: "Logout Successfull !",
+      message: "Logout Successfully !",
     });
 
     toggleDrawer();
@@ -165,7 +163,7 @@ export default function UserSidebar() {
                   {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
-                        <div className={classes.coin}>
+                        <div className={classes.coin} key={coin.id}>
                           <span>{coin.name}</span>
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}

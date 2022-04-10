@@ -12,9 +12,7 @@ const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container);
 
 root.render(
-  <React.StrictMode>
-    <CryptoContext>
-      <App />
-    </CryptoContext>
-  </React.StrictMode>
+  <CryptoContext>
+    <App />
+  </CryptoContext>
 );

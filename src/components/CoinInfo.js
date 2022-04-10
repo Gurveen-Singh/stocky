@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { HistoricalChart } from "../config/Api";
+import { Chart as ChartJS, registerables } from "chart.js";
 import { Line } from "react-chartjs-2";
 import {
   CircularProgress,
@@ -13,6 +14,7 @@ import { chartDays } from "../config/Data";
 import { CryptoState } from "../CryptoContext";
 
 const CoinInfo = ({ coin }) => {
+  ChartJS.register(...registerables);
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
   const { currency } = CryptoState();
@@ -51,7 +53,7 @@ const CoinInfo = ({ coin }) => {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#fff",
+        main: "#000000",
       },
       type: "dark",
     },

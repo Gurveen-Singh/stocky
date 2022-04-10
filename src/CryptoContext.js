@@ -56,7 +56,6 @@ const CryptoContext = ({ children }) => {
   useEffect(() => {
     if (currency === "INR") setSymbol("₹");
     else if (currency === "USD") setSymbol("$");
-    else if (currency === "EUR") setSymbol("€");
 
     fetchCoins();
     // eslint-disable-next-line react-hooks/exhaustive-deps

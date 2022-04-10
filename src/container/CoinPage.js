@@ -9,11 +9,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import CoinInfo from "../components/CoinInfo";
-import { SingleCoin } from "../config/api";
+import { SingleCoin } from "../config/Api";
 import { numberWithCommas } from "../components/CoinsTable";
 import { CryptoState } from "../CryptoContext";
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../firebase";
+import { db } from "../FireBase";
 
 const CoinPage = () => {
   const { id } = useParams();
