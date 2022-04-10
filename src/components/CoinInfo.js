@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { HistoricalChart } from "../config/api";
+import { HistoricalChart } from "../config/Api";
 import { Line } from "react-chartjs-2";
 import {
   CircularProgress,
@@ -9,7 +9,7 @@ import {
   ThemeProvider,
 } from "@material-ui/core";
 import SelectButton from "./SelectButton";
-import { chartDays } from "../config/data";
+import { chartDays } from "../config/Data";
 import { CryptoState } from "../CryptoContext";
 
 const CoinInfo = ({ coin }) => {

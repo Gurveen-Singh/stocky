@@ -1,8 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "./firebase";
+import { auth, db } from "./FireBase";
 import axios from "axios";
-import { CoinList } from "./config/api";
+import { CoinList } from "./config/Api";
 import { onSnapshot, doc } from "firebase/firestore";
 
 const Crypto = createContext();
