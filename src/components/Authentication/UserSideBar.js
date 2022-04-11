@@ -88,7 +88,7 @@ export default function UserSidebar() {
     setAlert({
       open: true,
       type: "success",
-      message: "Logout Successfully !",
+      message: "Logout Successfull !",
     });
 
     toggleDrawer();
@@ -163,7 +163,7 @@ export default function UserSidebar() {
                   {coins.map((coin) => {
                     if (watchlist.includes(coin.id))
                       return (
-                        <div className={classes.coin} key={coin.id}>
+                        <div className={classes.coin}>
                           <span>{coin.name}</span>
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}

@@ -11,7 +11,7 @@ import {
   makeStyles,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./Authentication/UserSideBar";
@@ -39,16 +39,16 @@ function Header() {
   const classes = useStyles();
   const { currency, setCurrency, user } = CryptoState();
 
-  const navigate = useNavigate();
+  const history = useHistory();
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar style={{ background: "#424242" }} position="static">
+      <AppBar color="transparent" position="static">
         <Container>
           <Toolbar>
             <Typography
-              onClick={() => navigate(`/`)}
-              variant="h5"
+              onClick={() => history.push(`/`)}
+              variant="h6"
               className={classes.title}
             >
               Stocky
@@ -58,7 +58,7 @@ function Header() {
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               value={currency}
-              style={{ width: 85, height: 40, backdropFilter: "white" }}
+              style={{ width: 85, height: 40 }}
               onChange={(e) => setCurrency(e.target.value)}
             >
               <MenuItem value={"USD"}>USD</MenuItem>
