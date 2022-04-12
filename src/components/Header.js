@@ -15,11 +15,12 @@ import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./Authentication/UserSideBar";
+import "../App.css";
 
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "gold",
+    color: "#ffffff",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
@@ -64,8 +65,9 @@ function Header() {
               <MenuItem value={"USD"}>USD</MenuItem>
               <MenuItem value={"INR"}>INR</MenuItem>
             </Select>
-
-            {user ? <UserSidebar /> : <AuthModal />}
+            <div className="header__profile">
+              {user ? <UserSidebar /> : <AuthModal />}
+            </div>
           </Toolbar>
         </Container>
       </AppBar>

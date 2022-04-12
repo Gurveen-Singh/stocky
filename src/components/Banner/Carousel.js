@@ -34,7 +34,7 @@ const Carousel = () => {
       alignItems: "center",
       cursor: "pointer",
       textTransform: "uppercase",
-      color: "white",
+      color: "#ffffff",
     },
   }));
 

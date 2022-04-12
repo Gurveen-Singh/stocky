@@ -36,7 +36,7 @@ function Banner() {
           <Typography
             variant="h2"
             style={{
-              color: "white",
+              color: "#ffffff",
               fontWeight: "bold",
               marginBottom: 15,
               fontFamily: "Montserrat",

@@ -9,5 +9,9 @@
 
 a {
   text-decoration: none;
-  color: gold;
+  color: #ffffff;
+}
+
+.header__profile {
+  padding: 1rem;
 }
