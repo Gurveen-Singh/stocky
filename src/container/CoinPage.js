@@ -18,7 +18,6 @@ import { db } from "../FireBase";
 const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
-
   const { currency, symbol, user, setAlert, watchlist } = CryptoState();
 
   const fetchCoin = async () => {
@@ -64,7 +63,7 @@ const CoinPage = () => {
       setAlert({
         open: true,
         message: `${coin.name} Removed from the Watchlist !`,
-        type: "success",
+        type: "error",
       });
     } catch (error) {
       setAlert({
@@ -111,6 +110,8 @@ const CoinPage = () => {
       paddingBottom: 15,
       paddingTop: 0,
       textAlign: "justify",
+      color: "#ffffff",
+      fontWeight: "400",
     },
     marketData: {
       alignSelf: "start",
@@ -130,7 +131,10 @@ const CoinPage = () => {
 
   const classes = useStyles();
 
-  if (!coin) return <LinearProgress style={{ backgroundColor: "blue" }} />;
+  if (!coin)
+    return (
+      <LinearProgress style={{ backgroundColor: "rgb(5.1%, 59.6%, 72.9%)" }} />
+    );
 
   return (
     <div className={classes.container}>
@@ -157,6 +161,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
+                color: "#ffffff",
               }}
             >
               {numberWithCommas(coin?.market_cap_rank)}
@@ -171,6 +176,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
+                color: "#ffffff",
               }}
             >
               {symbol}{" "}
@@ -188,6 +194,7 @@ const CoinPage = () => {
               variant="h5"
               style={{
                 fontFamily: "Montserrat",
+                color: "#ffffff",
               }}
             >
               {symbol}{" "}
@@ -205,7 +212,9 @@ const CoinPage = () => {
               style={{
                 width: "100%",
                 height: 40,
-                backgroundColor: inWatchlist ? "#ff0000" : "#ffffff",
+                color: "#ffffff",
+                fontWeight: "bold",
+                backgroundColor: inWatchlist ? "#ff0000" : "#83db7b",
               }}
               onClick={inWatchlist ? removeFromWatchlist : addToWatchlist}
             >

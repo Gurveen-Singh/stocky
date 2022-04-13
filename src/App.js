@@ -9,7 +9,7 @@ import Alert from "./components/Alert";
 const useStyles = makeStyles(() => ({
   App: {
     backgroundColor: "#14161a",
-    color: "#ffffff",
+    color: "#4D9A9A",
     minHeight: "100vh",
   },
 }));

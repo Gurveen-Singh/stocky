@@ -29,14 +29,13 @@ const useStyles = makeStyles({
   logout: {
     height: "8%",
     width: "100%",
-    backgroundColor: "#ffffff",
     marginTop: 20,
   },
   picture: {
     width: 200,
     height: 200,
     cursor: "pointer",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#4D9A9A",
     objectFit: "contain",
   },
   watchlist: {
@@ -55,12 +54,12 @@ const useStyles = makeStyles({
   coin: {
     padding: 10,
     borderRadius: 5,
-    color: "black",
+    color: "#fffff",
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#ffffff",
+    backgroundColor: "#4D9A9A",
     boxShadow: "0 0 3px black",
   },
 });
@@ -106,7 +105,7 @@ export default function UserSidebar() {
       setAlert({
         open: true,
         message: `${coin.name} Removed from the Watchlist !`,
-        type: "success",
+        type: "error",
       });
     } catch (error) {
       setAlert({
@@ -128,7 +127,7 @@ export default function UserSidebar() {
               width: 38,
               marginLeft: 15,
               cursor: "pointer",
-              backgroundColor: "#ffffff",
+              backgroundColor: "#4D9A9A",
             }}
             src={user.photoURL}
             alt={user.displayName || user.email}
@@ -184,6 +183,7 @@ export default function UserSidebar() {
                 variant="contained"
                 className={classes.logout}
                 onClick={logOut}
+                style={{ backgroundColor: "#ff0000", color: "#ffffff" }}
               >
                 Log Out
               </Button>

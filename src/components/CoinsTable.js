@@ -34,14 +34,37 @@ export default function CoinsTable() {
       backgroundColor: "#16171a",
       cursor: "pointer",
       "&:hover": {
-        backgroundColor: "#131111",
+        backgroundColor: "#383535",
       },
       fontFamily: "Montserrat",
     },
     pagination: {
       "& .MuiPaginationItem-root": {
-        color: "#ffffff",
+        color: "#4D9A9A",
       },
+    },
+    textField: {
+      marginBottom: 20,
+      width: "100%",
+      borderColor: "#4D9A9A",
+    },
+    cssLabel: {
+      color: "#4D9A9A",
+    },
+
+    cssOutlinedInput: {
+      "&$cssFocused $notchedOutline": {
+        borderColor: "#4D9A9A !important",
+      },
+    },
+
+    cssFocused: {
+      color: "#4D9A9A",
+    },
+
+    notchedOutline: {
+      borderWidth: "1px",
+      borderColor: "#4D9A9A !important",
     },
   });
 
@@ -77,15 +100,29 @@ export default function CoinsTable() {
         <TextField
           label="Search For a Crypto Currency.."
           variant="outlined"
-          style={{ marginBottom: 20, width: "100%" }}
+          className={classes.textField}
+          InputLabelProps={{
+            classes: {
+              root: classes.cssLabel,
+              focused: classes.cssFocused,
+            },
+          }}
+          InputProps={{
+            classes: {
+              root: classes.cssOutlinedInput,
+              focused: classes.cssFocused,
+              notchedOutline: classes.notchedOutline,
+            },
+            inputMode: "numeric",
+          }}
           onChange={(e) => setSearch(e.target.value)}
         />
         <TableContainer component={Paper}>
           {loading ? (
-            <LinearProgress style={{ backgroundColor: "#ffffff" }} />
+            <LinearProgress style={{ backgroundColor: "#4D9A9A" }} />
           ) : (
             <Table aria-label="simple table">
-              <TableHead style={{ backgroundColor: "#ffffff" }}>
+              <TableHead style={{ backgroundColor: "#4D9A9A" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
@@ -172,7 +209,6 @@ export default function CoinsTable() {
             </Table>
           )}
         </TableContainer>
-
         {/* Comes from @material-ui/lab */}
         <Pagination
           count={parseInt((handleSearch()?.length / 10).toFixed(0))}
@@ -185,9 +221,22 @@ export default function CoinsTable() {
           classes={{ ul: classes.pagination }}
           onChange={(_, value) => {
             setPage(value);
-            window.scroll(0, 450);
+            window.scroll(0, 470);
           }}
         />
+        <Typography
+          variant="h5"
+          style={{
+            padding: "1rem",
+            fontFamily: "Montserrat",
+            fontWeight: "600",
+          }}
+        >
+          Made By{" "}
+          <a href="https://gurveensingh.dev/" target="_blank" rel="noreferrer">
+            Gurveen Singh
+          </a>
+        </Typography>
       </Container>
     </ThemeProvider>
   );

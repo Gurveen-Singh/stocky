@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: 400,
     backgroundColor: theme.palette.background.paper,
-    color: "#ffffff",
+    color: "white",
     borderRadius: 10,
   },
   google: {
@@ -85,7 +85,8 @@ export default function AuthModal() {
           width: 85,
           height: 40,
           marginLeft: 15,
-          backgroundColor: "#ffffff",
+          backgroundColor: "#83db7b",
+          color: "#ffffff",
         }}
         onClick={handleOpen}
       >
@@ -99,9 +100,6 @@ export default function AuthModal() {
         onClose={handleClose}
         closeAfterTransition
         BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
       >
         <Fade in={open}>
           <div className={classes.paper}>
@@ -110,6 +108,7 @@ export default function AuthModal() {
               style={{
                 backgroundColor: "transparent",
                 color: "#ffffff",
+                fontWeight: "bold",
               }}
             >
               <Tabs

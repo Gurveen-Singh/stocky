@@ -20,17 +20,18 @@ import "../App.css";
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
-    color: "#ffffff",
+    color: "#4D9A9A",
     fontFamily: "Montserrat",
     fontWeight: "bold",
     cursor: "pointer",
+    fontSize: "2rem",
   },
 }));
 
 const darkTheme = createTheme({
   palette: {
     primary: {
-      main: "#fff",
+      main: "#ffffff",
     },
     type: "dark",
   },
