@@ -1,3 +1,5 @@
+/* Importing the Box, Button, TextField, useState, CryptoState, createUserWithEmailAndPassword, and
+auth from the material-ui/core, react, CryptoContext, firebase/auth, and FireBase. */
 import { Box, Button, TextField } from "@material-ui/core";
 import { useState } from "react";
 import { CryptoState } from "../../CryptoContext";
@@ -5,12 +7,25 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../FireBase";
 
 const Signup = ({ handleClose }) => {
+  /* Setting the state of the email, password, and confirmPassword. */
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const { setAlert } = CryptoState();
 
+  /**
+   * If the password and confirmPassword are not equal, set the alert to open, with a message of
+   * "Passwords do not match" and a type of "error".
+   *
+   * If the password and confirmPassword are equal, then create a user with the email and password. If
+   * the user is created successfully, set the alert to open, with a message of "Sign Up Successful.
+   * Welcome ${result.user.email}" and a type of "success".
+   *
+   * If the user is not created successfully, set the alert to open, with a message of error.message and
+   * a type of "error".
+   * @returns The result of the createUserWithEmailAndPassword function.
+   */
   const handleSubmit = async () => {
     if (password !== confirmPassword) {
       setAlert({
@@ -44,6 +59,7 @@ const Signup = ({ handleClose }) => {
     }
   };
 
+  /* Returning the Box, TextField, and Button components. */
   return (
     <Box
       p={3}

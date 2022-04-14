@@ -1,3 +1,4 @@
+/* A constant variable that is storing the firebase configuration. */
 const firebaseConfig = {
   apiKey: "AIzaSyADHGo_BrdrCZ1hjxej8JotxIemV48S1M8",
   authDomain: "stocky-g.firebaseapp.com",

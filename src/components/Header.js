@@ -1,3 +1,4 @@
+/* Importing all the required components from the material-ui library. */
 import {
   AppBar,
   Container,
@@ -17,6 +18,7 @@ import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./Authentication/UserSideBar";
 import "../App.css";
 
+/* A style object. */
 const useStyles = makeStyles((theme) => ({
   title: {
     flex: 1,
@@ -28,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/* Creating a dark theme for the app. */
 const darkTheme = createTheme({
   palette: {
     primary: {
@@ -38,11 +41,16 @@ const darkTheme = createTheme({
 });
 
 function Header() {
+  /* A hook that is used to access the styles object. */
   const classes = useStyles();
+
+  /* Destructuring the state object. */
   const { currency, setCurrency, user } = CryptoState();
 
+  /* A hook that is used to access the history object. */
   const history = useHistory();
 
+  /* Returning the JSX code. */
   return (
     <ThemeProvider theme={darkTheme}>
       <AppBar color="transparent" position="static">

@@ -1,3 +1,4 @@
+/* Importing the modules. */
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -9,6 +10,7 @@ import { numberWithCommas } from "../CoinsTable";
 import { AiFillDelete } from "react-icons/ai";
 import { doc, setDoc } from "firebase/firestore";
 
+/* A CSS styling. */
 const useStyles = makeStyles({
   container: {
     width: 350,
@@ -66,12 +68,24 @@ const useStyles = makeStyles({
 });
 
 export default function UserSidebar() {
+  /* A CSS styling. */
   const classes = useStyles();
+
+  /* A state that is used to toggle the drawer. */
   const [state, setState] = useState({
     right: false,
   });
+
+  /* Destructuring the `CryptoState` object. */
   const { user, setAlert, watchlist, coins, symbol } = CryptoState();
 
+  /**
+   * If the event type is a keydown and the key is either Tab or Shift, return. Otherwise, set the state
+   * to the current state with the anchor set to open.
+   * @param anchor - the side of the screen you want the drawer to appear on.
+   * @param open - Boolean
+   * @returns the setState function.
+   */
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -83,6 +97,11 @@ export default function UserSidebar() {
     setState({ ...state, [anchor]: open });
   };
 
+  /**
+   * When the user clicks the logout button, the logout function is called, which sets the alert to open,
+   * sets the type to success, and sets the message to Logout Successfull !, and then calls the
+   * toggleDrawer function.
+   */
   const logOut = () => {
     signOut(auth);
     setAlert({
@@ -94,6 +113,15 @@ export default function UserSidebar() {
     toggleDrawer();
   };
 
+  /**
+   * It takes a coin object as an argument, then it creates a reference to the watchlist collection in
+   * the database, then it tries to update the watchlist collection by removing the coin object from the
+   * watchlist array, then it sets an alert message.
+   *
+
+   * @param coin - {id: "bitcoin", name: "Bitcoin", symbol: "BTC", rank: "1", price_usd: "9077.9",
+   * price_btc: "1.0",…}
+   */
   const removeFromWatchlist = async (coin) => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
@@ -117,6 +145,7 @@ export default function UserSidebar() {
     }
   };
 
+  /* Returning a div that contains an array of React.Fragment components. */
   return (
     <div>
       {["right"].map((anchor) => (

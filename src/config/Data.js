@@ -1,3 +1,4 @@
+/* Exporting the array of objects. */
 export const chartDays = [
   {
     label: "24 Hours",

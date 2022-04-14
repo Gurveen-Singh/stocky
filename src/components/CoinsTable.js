@@ -1,3 +1,4 @@
+/* Importing the required modules. */
 import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
@@ -19,6 +20,11 @@ import {
 import { useHistory } from "react-router-dom";
 import { CryptoState } from "../CryptoContext";
 
+/**
+ * If there's a number followed by three digits, insert a comma before the three digits.
+ * @param x - The number to be formatted.
+ * @returns A function that takes a number and returns a string with commas.
+ */
 export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -29,6 +35,7 @@ export default function CoinsTable() {
 
   const { symbol, coins, loading } = CryptoState();
 
+  /* A CSS styling for the table. */
   const useStyles = makeStyles({
     row: {
       backgroundColor: "#16171a",
@@ -68,9 +75,13 @@ export default function CoinsTable() {
     },
   });
 
+  /* A hook that is used to access the styles defined in the `useStyles` function. */
   const classes = useStyles();
+
+  /* A hook that is used to access the history of the browser. */
   const history = useHistory();
 
+  /* Creating a dark theme for the table. */
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -80,6 +91,10 @@ export default function CoinsTable() {
     },
   });
 
+  /**
+   * It returns a filtered array of coins based on the search term.
+   * @returns The filtered coins array.
+   */
   const handleSearch = () => {
     return coins.filter(
       (coin) =>
@@ -88,6 +103,7 @@ export default function CoinsTable() {
     );
   };
 
+  /* A React component that is rendering a table of data. */
   return (
     <ThemeProvider theme={darkTheme}>
       <Container style={{ textAlign: "center" }}>

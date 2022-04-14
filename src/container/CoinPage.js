@@ -1,3 +1,4 @@
+/* Importing the modules from the libraries. */
 import {
   Button,
   LinearProgress,
@@ -16,18 +17,28 @@ import { doc, setDoc } from "firebase/firestore";
 import { db } from "../FireBase";
 
 const CoinPage = () => {
+  /* Destructuring the id from the useParams hook and setting the coin state. */
   const { id } = useParams();
   const [coin, setCoin] = useState();
+
+  /* Destructuring the currency, symbol, user, setAlert, watchlist from the CryptoState. */
   const { currency, symbol, user, setAlert, watchlist } = CryptoState();
 
+  /**
+   * When the component mounts, fetch the coin data from the API and set the state with the data.
+   */
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
 
     setCoin(data);
   };
 
+  /* Checking if the coin is in the watchlist. */
   const inWatchlist = watchlist.includes(coin?.id);
 
+  /**
+   * "addToWatchlist" is a function that takes a coin object and adds it to the user's watchlist.
+   */
   const addToWatchlist = async () => {
     const coinRef = doc(db, "watchlist", user.uid);
     try {
@@ -50,6 +61,9 @@ const CoinPage = () => {
       });
     }
   };
+  /**
+   * It takes the coin id from the watchlist and removes it from the watchlist.
+   */
 
   const removeFromWatchlist = async () => {
     const coinRef = doc(db, "watchlist", user.uid);
@@ -74,12 +88,14 @@ const CoinPage = () => {
     }
   };
 
+  /* A hook that is used to fetch the data from the API. */
   useEffect(() => {
     fetchCoin();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const useStyles = makeStyles((theme) => ({
+    /*  A React component that is using Material UI to create a responsive layout. */
     container: {
       display: "flex",
       [theme.breakpoints.down("md")]: {
@@ -129,13 +145,16 @@ const CoinPage = () => {
     },
   }));
 
+  /* A hook that is used to fetch the data from the API. */
   const classes = useStyles();
 
+  /* A conditional rendering. If the coin is not fetched from the API, it will show a loading bar. */
   if (!coin)
     return (
       <LinearProgress style={{ backgroundColor: "rgb(5.1%, 59.6%, 72.9%)" }} />
     );
 
+  /* Returning the JSX code. */
   return (
     <div className={classes.container}>
       <div className={classes.sidebar}>

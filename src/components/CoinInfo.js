@@ -1,3 +1,4 @@
+/* Importing the necessary libraries and components. */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { HistoricalChart } from "../config/Api";
@@ -14,11 +15,17 @@ import { chartDays } from "../config/Data";
 import { CryptoState } from "../CryptoContext";
 
 const CoinInfo = ({ coin }) => {
+  /* Registering the chart.js library. */
   ChartJS.register(...registerables);
+
+  /* Setting the state of the component. */
   const [historicData, setHistoricData] = useState();
   const [days, setDays] = useState(1);
+
+  /* A hook that is used to get the currency from the context. */
   const { currency } = CryptoState();
 
+  /* A style for the container. */
   const useStyles = makeStyles((theme) => ({
     container: {
       width: "75%",
@@ -37,19 +44,26 @@ const CoinInfo = ({ coin }) => {
     },
   }));
 
+  /* A hook that is used to get the styles from the useStyles function. */
   const classes = useStyles();
 
+  /**
+   * FetchHistoricData is an async function that uses axios to get data from the HistoricalChart
+   * function, and then sets the data.prices to the state of historicData.
+   */
   const fetchHistoricData = async () => {
     const { data } = await axios.get(HistoricalChart(coin.id, days, currency));
 
     setHistoricData(data.prices);
   };
 
+  /* A hook that is used to fetch the data from the API. */
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [days, currency]);
 
+  /* Creating a dark theme for the component. */
   const darkTheme = createTheme({
     palette: {
       primary: {
@@ -59,6 +73,7 @@ const CoinInfo = ({ coin }) => {
     },
   });
 
+  /* Returning the JSX code for the component. */
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={classes.container}>

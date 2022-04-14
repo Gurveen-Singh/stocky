@@ -1,3 +1,4 @@
+/* Importing the necessary components for the app to run. */
 import { makeStyles } from "@material-ui/core";
 import Home from "./container/Home";
 import "./App.css";
@@ -6,6 +7,7 @@ import CoinPage from "./container/CoinPage";
 import Header from "./components/Header";
 import Alert from "./components/Alert";
 
+/* Setting the background color, color, and minHeight of the app. */
 const useStyles = makeStyles(() => ({
   App: {
     backgroundColor: "#14161a",
@@ -15,8 +17,10 @@ const useStyles = makeStyles(() => ({
 }));
 
 function App() {
+  /* A hook that is used to set the styles of the app. */
   const classes = useStyles();
 
+  /* Returning the app. */
   return (
     <BrowserRouter>
       <div className={classes.App}>

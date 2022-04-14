@@ -1,6 +1,9 @@
+/* Importing the Container, makeStyles, Typography from the material-ui/core library. It is also
+importing the Carousel component from the Carousel.js file. */
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import Carousel from "./Carousel";
 
+/* Defining the styles for the banner. */
 const useStyles = makeStyles((theme) => ({
   banner: {
     backgroundImage: "url(./banner.jpg)",
@@ -27,8 +30,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Banner() {
+  /* A hook that is used to access the styles defined in the useStyles function. */
   const classes = useStyles();
 
+  /* Returning the JSX code that is used to render the banner. */
   return (
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>

@@ -1,5 +1,7 @@
+/* Importing the font Montserrat from Google Fonts. */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;800&display=swap");
 
+/* A CSS reset. It is a way to reset the default styling of the browser. */
 * {
   margin: 0;
   padding: 0;
@@ -7,11 +9,13 @@
   scroll-behavior: smooth;
 }
 
+/* Removing the underline from the links and changing the color of the links. */
 a {
   text-decoration: none;
   color: #4d9a9a;
 }
 
+/* Adding padding to the header profile. */
 .header__profile {
   padding: 1rem;
 }

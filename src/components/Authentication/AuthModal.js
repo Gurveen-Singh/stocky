@@ -1,3 +1,4 @@
+/* Importing the necessary components from the material-ui library. */
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
@@ -11,6 +12,7 @@ import { auth } from "../../FireBase";
 import GoogleButton from "react-google-button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
+/* Styling the modal. */
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: "flex",
@@ -35,26 +37,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AuthModal() {
-  const classes = useStyles();
+  /* Setting the state of the modal. */
   const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(0);
 
+  /* A hook that is used to set the state of the modal. */
+  const classes = useStyles();
+
+  /* Destructuring the setAlert function from the CryptoState context. */
   const { setAlert } = CryptoState();
 
+  /**
+   * The handleOpen function sets the state of the open variable to true.
+   */
   const handleOpen = () => {
     setOpen(true);
   };
 
+  /**
+   * The handleClose function sets the open state to false.
+   */
   const handleClose = () => {
     setOpen(false);
   };
 
-  const [value, setValue] = useState(0);
-
+  /**
+   * The handleChange function takes in an event and a newValue, and then sets the value to the
+   * newValue.
+   * @param event - The event source of the callback
+   * @param newValue - The new value of the slider.
+   */
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  /* Creating a new instance of the GoogleAuthProvider class. */
   const googleProvider = new GoogleAuthProvider();
+
+  /**
+   * SignInWithGoogle() is a function that calls signInWithPopup() which is a function that takes two
+   * arguments, auth and googleProvider, and returns a promise that resolves to an object with a user
+   * property that has an email property.
+   */
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider)
@@ -77,6 +101,7 @@ export default function AuthModal() {
       });
   };
 
+  /* Returning a div with a button and a modal. */
   return (
     <div>
       <Button

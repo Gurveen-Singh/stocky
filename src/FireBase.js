@@ -5,6 +5,8 @@ import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import firebaseConfig from "./config/FireBaseConfig";
 
+/* Initializing the firebase app with the configuration that we have provided in the FireBaseConfig.js
+file. */
 const firebaseApp = initializeApp(firebaseConfig);
 
 const auth = getAuth(firebaseApp); // For Authentication

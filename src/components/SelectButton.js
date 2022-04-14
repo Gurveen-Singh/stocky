@@ -1,5 +1,9 @@
+/* Importing the makeStyles function from the material-ui library. */
 import { makeStyles } from "@material-ui/core";
 
+/**
+ * It creates a style object that can be used by the component.
+ */
 const SelectButton = ({ children, selected, onClick }) => {
   const useStyles = makeStyles({
     selectbutton: {
@@ -20,8 +24,10 @@ const SelectButton = ({ children, selected, onClick }) => {
     },
   });
 
+  /* Creating a style object that can be used by the component. */
   const classes = useStyles();
 
+  /* Returning a span element with the onClick event handler and the className property. */
   return (
     <span onClick={onClick} className={classes.selectbutton}>
       {children}
