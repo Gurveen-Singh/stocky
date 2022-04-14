@@ -93,7 +93,7 @@ export default function CoinsTable() {
       <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
-          style={{ margin: 18, fontFamily: "Montserrat" }}
+          style={{ margin: 18, fontFamily: "Montserrat", fontWeight: "600" }}
         >
           Cryptocurrency Prices by Market Cap
         </Typography>
@@ -127,9 +127,10 @@ export default function CoinsTable() {
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell
                       style={{
-                        color: "black",
+                        color: "white",
                         fontWeight: "700",
                         fontFamily: "Montserrat",
+                        fontSize: "1.2rem",
                       }}
                       key={head}
                       align={head === "Coin" ? "left" : "right"}
@@ -230,6 +231,7 @@ export default function CoinsTable() {
             padding: "1rem",
             fontFamily: "Montserrat",
             fontWeight: "600",
+            color: "#fff",
           }}
         >
           Made By{" "}
