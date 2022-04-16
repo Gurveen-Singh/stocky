@@ -148,8 +148,8 @@ export default function UserSidebar() {
   /* Returning a div that contains an array of React.Fragment components. */
   return (
     <div>
-      {["right"].map((anchor) => (
-        <React.Fragment key={anchor}>
+      {["right"].map((anchor, index) => (
+        <React.Fragment key={index}>
           <Avatar
             onClick={toggleDrawer(anchor, true)}
             style={{
@@ -185,14 +185,14 @@ export default function UserSidebar() {
                 >
                   {user.displayName || user.email}
                 </span>
-                <div className={classes.watchlist}>
+                <div className={classes.watchlist} key={index + 1}>
                   <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
                     Watchlist
                   </span>
-                  {coins.map((coin) => {
+                  {coins.map((coin, ind) => {
                     if (watchlist.includes(coin.id))
                       return (
-                        <div className={classes.coin}>
+                        <div className={classes.coin} key={ind}>
                           <span>{coin.name}</span>
                           <span style={{ display: "flex", gap: 8 }}>
                             {symbol}{" "}
